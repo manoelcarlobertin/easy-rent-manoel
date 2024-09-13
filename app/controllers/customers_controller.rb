@@ -1,10 +1,10 @@
 class CustomersController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :load_customer, only: %i[show edit update destroy]
 
   def index
     @customers = Customer.order(:name)
-    # authorize @customers
+    authorize @customers
   end
 
   # def search
@@ -14,17 +14,17 @@ class CustomersController < ApplicationController
   # end
 
   def show
-    # authorize @customer
+    authorize @customer
   end
 
   def new
     @customer = Customer.new
-    # authorize @customer
+    authorize @customer
   end
 
   def create
     @customer = Customer.new customer_params
-    # authorize @customer
+    authorize @customer
 
     if @customer.save
       redirect_to customers_path, notice: "Cliente cadastrado com sucesso."
@@ -34,11 +34,11 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    # authorize @customer
+    authorize @customer
   end
 
   def update
-    # authorize @customer
+    authorize @customer
 
     if @customer.update customer_params
       redirect_to customer_params, notice: "Cliente atualizado com sucesso."
@@ -48,7 +48,7 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    # authorize @customer
+    authorize @customer
   end
 
   private
