@@ -21,6 +21,8 @@ gem "jbuilder"
 
 gem "simple_form"
 
+gem "devise", "~> 4.9"
+
 # Permissionamento
 gem "pundit", "~> 2.3"
 
