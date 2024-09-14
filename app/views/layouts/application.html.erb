@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<<html data-bs-theme="light">
   <head>
     <title><%= content_for(:title) || "Easy Rent Manoel" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -17,7 +17,15 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled">
+    <div class="d-flex flex-column flex-root">
+      <div class="page d-flex flex-row flex-column-fluid">
+        <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+          <%= render "shared/header" %>
+          <%= yield %>
+          <%= render "shared/footer" %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
